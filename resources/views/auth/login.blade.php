@@ -12,7 +12,7 @@
     </div>
     <!-- /.login-logo -->
     <div class="card">
-        <div class="card-header bg-gradient-info">
+        <div class="card-header bg-gradient-success">
             <h3 class="card-title float-none text-center">
                 Sign in to start your session </h3>
         </div>
@@ -25,7 +25,7 @@
                         required autofocus autocomplete="username">
                     <div class="input-group-append">
                         <div class="input-group-text">
-                            <span class="fas fa-envelope fa-lg text-info"></span>
+                            <span class="fas fa-envelope fa-lg text-success"></span>
                         </div>
                     </div>
                     @error('email')
@@ -39,7 +39,7 @@
                         autocomplete="current-password">
                     <div class="input-group-append">
                         <div class="input-group-text">
-                            <span class="fas fa-lock fa-lg text-info"></span>
+                            <span class="fas fa-lock fa-lg text-success"></span>
                         </div>
                     </div>
                     @error('password')
