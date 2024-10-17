@@ -98,7 +98,8 @@
                         <a href="{{ route('lease_application_details',['appid'=>$apps->application_id])}}" class="btn btn-xs btn-success"><i
                             class="fas fa-eye"></i>View Application</a>
                         @endif
-
+                        <a href="{{ route('lease_application_status',['appid'=>$apps->application_id])}}" class="btn btn-xs btn-success"><i
+                            class="fas fa-eye"></i>View Status</a>
 
 
                     </td>

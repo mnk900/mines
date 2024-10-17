@@ -125,6 +125,7 @@ Route::get('/survey/{id}', [App\Http\Controllers\ApplicationsController::class, 
 // Application AD routes
 // for individual applications profile
 Route::get('/leaseapplications/{appid}', [App\Http\Controllers\ApplicationsController::class, 'viewAppDetails'])->name('lease_application_details');
+Route::get('/leaseapplications/{appid}/status', [App\Http\Controllers\ApplicationsController::class, 'viewAppStatus'])->name('lease_application_status');
 
 
 Route::get('/applications/{email}', [App\Http\Controllers\ApplicationsController::class, 'viewapplications'])->name('applicationsdetails');
