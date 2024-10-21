@@ -64,6 +64,10 @@
                     <!-- /.col -->
                 </div>
             </form>
+            <hr>
+            <p class="mb-0 mt-2">
+            Don't Have account? <a href="{{ route('home.register') }}" class="text-center">Register new account</a>
+        </p> 
         </div>
         <!-- /.card-body -->
     </div>

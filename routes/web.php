@@ -75,6 +75,7 @@ Route::get('/applicationfees', function () {
 });
 
 
+Route::get('/map','App\Http\Controllers\HomeController@map');
 
 Route::get('/open-doc', function () {
     return view('applicationprocedure');

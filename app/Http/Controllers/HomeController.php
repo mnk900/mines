@@ -74,6 +74,51 @@ class HomeController extends Controller
         return view('home.index',['slider'=>$slider,'districts'=>$polygonData,  'studyAreas'=>$studyAreasData, 'companyPolygons'=>$companyPolygonsData]);
     }
 
+    public function map()
+    {
+        //dd('asjhdajhs');
+
+
+        $districts = DB::table('district_boundries')->get();
+        //dd($districts);
+        $studyAreas = DB::table('study_area_polygons')->get();
+        //dd($studyAreas);
+
+        $companyPolygons = DB::table('company_polygons')->get();
+      //  dd($companyPolygons);
+
+
+            // Convert the polygons to a format usable by Leaflet (array of coordinates)
+            $polygonData = [];
+            foreach ($districts as $polygon) {
+                $coordinates = DB::select("SELECT ST_AsText(p.boundary_polygon) as geo, p.district_id as polygonid
+                 FROM district_boundries  p
+                 WHERE p.district_boundary_id = ?", [$polygon->district_boundary_id]);
+                $polygonData[] = $coordinates;
+            }
+
+             // Convert the polygons to a format usable by Leaflet (array of coordinates)
+             $studyAreasData = [];
+             foreach ($studyAreas as $polygon) {
+                 $coordinates = DB::select("SELECT ST_AsText(p.polygon_data) as geo, p.study_area_name as polygonid
+                  FROM study_area_polygons  p
+                  WHERE p.study_area_id = ?", [$polygon->study_area_id]);
+                 $studyAreasData[] = $coordinates;
+             }
+
+              // Convert the polygons to a format usable by Leaflet (array of coordinates)
+            $companyPolygonsData = [];
+            foreach ($companyPolygons as $polygon) {
+                $coordinates = DB::select("SELECT ST_AsText(p.coordinates) as geo, p.mineral_name as polygonid, p.status as grantstatus
+                 FROM company_polygons  p
+                 WHERE p.polygon_id = ?", [$polygon->polygon_id]);
+                $companyPolygonsData[] = $coordinates;
+            }
+
+        $slider=Slider::get();
+        return view('home.map',['slider'=>$slider,'districts'=>$polygonData,  'studyAreas'=>$studyAreasData, 'companyPolygons'=>$companyPolygonsData]);
+    }
+
             public function register(){
                 $districts = DB::table('areas')
                                 ->select('District', 'DistrictName')

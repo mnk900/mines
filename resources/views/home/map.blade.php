@@ -1,113 +1,9 @@
 @extends('layouts.appHome')
 @push('styles')
-<style>
- @media (max-width: 576px) {
- .navbar {
-  height: auto !important;
- }
-}
-
-@media (min-width: 576px) {
-  html,
-    body {
-      height: 100%;
-      background: linear-gradient(to bottom, #ffffff, #f0f0f0); /* White to light gray gradient */
-      overflow: hidden; /* Disable scrolling */
-    }  
-}
-
-.card {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: opacity 1s ease-out, transform 1s ease-out;
-        }
-
-        .card.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .card {
-            background-color: #f8f9fa; /* Light background for cards */
-        }
-
-        /* Optional: Card hover effect */
-        .card:hover {
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-        }
-    
-</style>
 @endpush
 @section('content')
-<!--Showcase-->
-<div class="content-wrapper">
-<section id="" class="container">
-    <div  class="primary-overlay">
-    <div class="row">
-            <!-- Card 1 -->
-            <div class="col-md-4 mb-4">
-                <div class="card bg-primary text-white">
-                    <div class="card-body">
-                        <p class="card-text">Process Guide Lines</p>
-                        <a href="{{url('applicationprocedure')}}" target="_blank" class="btn btn-dark">More Details <i class="fas fa-arrow-circle-right"></i></a>
-                    </div>
-                </div>
-            </div>
-            <!-- Card 2 -->
-            <div class="col-md-4 mb-4">
-                <div class="card bg-success text-white">
-                    <div class="card-body">
-                        <p class="card-text">Intractive MAP</p>
-                        <a href="{{url('map')}}" class="btn btn-dark">More Details <i class="fas fa-arrow-circle-right"></i></a>
-                    </div>
-                </div>
-            </div>
-            <!-- Card 3 -->
-            <div class="col-md-4 mb-4">
-                <div class="card bg-dark text-white">
-                    <div class="card-body">
-                        <!-- <h5 class="card-title">Card 3</h5> -->
-                        <p class="card-text">Apply for Registration</p>
-                        <a href="{{route('login')}}" class="btn btn-primary">Apply</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Card 4 -->
-            <div class="col-md-4 mb-4">
-                <div class="card bg-olive text-white">
-                    <div class="card-body">
-                        <!-- <h5 class="card-title">Card 4</h5> -->
-                        <p class="card-text">Mining Concession  Rules</p>
-                        <a href="{{url('mcr2016')}}" target="_blank" class="btn btn-dark">More Details <i class="fas fa-arrow-circle-right"></i></a>
-                    </div>
-                </div>
-            </div>
-            <!-- Card 5 -->
-            <div class="col-md-4 mb-4">
-                <div class="card bg-warning text-white">
-                    <div class="card-body">
-                        <!-- <h5 class="card-title">Card 5</h5> -->
-                        <p class="card-text">Lease Holders</p>
-                        <a href="#" class="btn btn-dark">More Details <i class="fas fa-arrow-circle-right"></i></a>
-                    </div>
-                </div>
-            </div>
-            <!-- Card 6 -->
-            <div class="col-md-4 mb-4">
-                <div class="card bg-danger text-white">
-                    <div class="card-body">
-                        <!-- <h5 class="card-title">Card 6</h5> -->
-                        <p class="card-text">Downloads</p>
-                        <a href="#" class="btn btn-dark">More Details <i class="fas fa-arrow-circle-right"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-  </section>
-
-    <!--Maps-->
-    <section id="about" class="py-5 text-center bg-light d-none">
+ <!--Maps-->
+ <section id="about" class="py-5 text-center bg-light">
     <div class="container">
       <div class="row">
         <div class="col">
@@ -139,61 +35,7 @@
       </div>
     </div>
   </section>
-
-  <!--Downloads-->
-  <section id="boxes" class="py-5 d-none">
-    <div class="container">
-        <div class="info-header mb-5">
-            <h1 class="text-primary pb-3" style="text-align: center">
-              Downloads
-            </h1>
-          </div>
-      <div class="row">
-        <div class="col-lg-3">
-            <a href="/mcr2024" target="_blank">
-          <div class="card text-center border-primary mb-resp mb-3">
-            <div class="card-body">
-              <span class="d-block h3 text-primary">Mineral Concession Rules 2024</span>
-              <p class="text-muted">Detailed document of Mineral Concession Rules 2024</p>
-            </div>
-          </div>
-            </a>
-        </div>
-        <div class="col-lg-3">
-            <a href="/mcr2016" target="_blank">
-          <div class="card text-center bg-primary text-white mb-resp mb-3">
-            <div class="card-body">
-              <span class="d-block h3">Mineral Concession Rules 2016</span>
-              <p>Detailed document of Mineral Concession Rules 2016</p>
-            </div>
-          </div>
-            </a>
-        </div>
-        <div class="col-lg-3">
-            <a href="/applicationprocedure"  target="_blank">
-          <div class="card text-center border-primary mb-resp mb-3">
-            <div class="card-body">
-              <span class="d-block h3 text-primary">Guidelines for Fresh Applicants</span>
-              <p class="text-muted">Guidelines for Fresh Applicants to apply for minerals lease</p>
-            </div>
-          </div>
-            </a>
-        </div>
-        <div class="col-lg-3">
-            <a href="/applicationfees" target="_blank">
-          <div class="card text-center bg-primary text-white mb-3">
-            <div class="card-body">
-              <span class="d-block h3">Fee Schedule</span>
-              <p>Guidelines for various fees to be submitted during mining lease</p>
-            </div>
-          </div>
-            </a>
-        </div>
-      </div>
-    </div>
-  </section>
-</div>
-  @endsection
+@endsection
 @push('scripts')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
 integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
@@ -204,16 +46,7 @@ crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
 integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
 crossorigin="anonymous"></script>
-<script>
-        document.addEventListener('DOMContentLoaded', function() {
-            let cards = document.querySelectorAll('.card');
-            cards.forEach((card, index) => {
-                setTimeout(() => {
-                    card.classList.add('show');
-                }, 300 * index); // Delay each card animation
-            });
-        });
-    </script>
+
 <script>
 // Get the current year for the copyright
 $('#year').text(new Date().getFullYear());
@@ -519,5 +352,3 @@ $("#main-nav a").on('click', function(event) {
 
 
 @endpush
-
-
